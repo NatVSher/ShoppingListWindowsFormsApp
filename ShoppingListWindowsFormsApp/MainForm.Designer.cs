@@ -40,9 +40,15 @@
             this.medicalDataGridView = new System.Windows.Forms.DataGridView();
             this.nonFoodDataGridView = new System.Windows.Forms.DataGridView();
             this.foodDataGridView = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finalPriceTextBox = new System.Windows.Forms.TextBox();
+            this.finalPriceLabel = new System.Windows.Forms.Label();
+            this.productDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.medicalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nonFoodDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // foodLabel
@@ -105,20 +111,14 @@
             this.foodPrice.HeaderText = "Цена";
             this.foodPrice.Name = "foodPrice";
             // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 450);
-            // 
-            // MedicalDataGridView
+            // medicalDataGridView
             // 
             this.medicalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medicalDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MedName,
             this.MedPrice});
             this.medicalDataGridView.Location = new System.Drawing.Point(643, 104);
-            this.medicalDataGridView.Name = "MedicalDataGridView";
+            this.medicalDataGridView.Name = "medicalDataGridView";
             this.medicalDataGridView.Size = new System.Drawing.Size(240, 150);
             this.medicalDataGridView.TabIndex = 5;
             this.medicalDataGridView.Text = "dataGridView1";
@@ -135,17 +135,71 @@
             this.nonFoodDataGridView.TabIndex = 3;
             this.nonFoodDataGridView.Text = "dataGridView1";
             // 
-            // FoodDataGridView
+            // foodDataGridView
             // 
             this.foodDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.foodDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.foodName,
             this.foodPrice});
             this.foodDataGridView.Location = new System.Drawing.Point(36, 104);
-            this.foodDataGridView.Name = "FoodDataGridView";
+            this.foodDataGridView.Name = "foodDataGridView";
             this.foodDataGridView.Size = new System.Drawing.Size(240, 150);
             this.foodDataGridView.TabIndex = 0;
             this.foodDataGridView.Text = "dataGridView1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(374, 290);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 25);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Список покупок";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Наименование";
+            this.Name.Name = "Name";
+            // 
+            // finalPriceTextBox
+            // 
+            this.finalPriceTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.finalPriceTextBox.Location = new System.Drawing.Point(691, 378);
+            this.finalPriceTextBox.Name = "finalPriceTextBox";
+            this.finalPriceTextBox.Size = new System.Drawing.Size(158, 33);
+            this.finalPriceTextBox.TabIndex = 8;
+            // 
+            // finalPriceLabel
+            // 
+            this.finalPriceLabel.AutoSize = true;
+            this.finalPriceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.finalPriceLabel.Location = new System.Drawing.Point(643, 328);
+            this.finalPriceLabel.Name = "finalPriceLabel";
+            this.finalPriceLabel.Size = new System.Drawing.Size(250, 21);
+            this.finalPriceLabel.TabIndex = 9;
+            this.finalPriceLabel.Text = "Примерная цена всех товаров";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(927, 513);
+            // 
+            // productDataGridView
+            // 
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Name});
+            this.productDataGridView.Location = new System.Drawing.Point(384, 328);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.Size = new System.Drawing.Size(143, 150);
+            this.productDataGridView.TabIndex = 7;
+            this.productDataGridView.Text = "dataGridView1";
+            this.Controls.Add(this.finalPriceLabel);
+            this.Controls.Add(this.finalPriceTextBox);
+            this.Controls.Add(this.productDataGridView);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.medicalDataGridView);
             this.Controls.Add(this.MedicalLabel);
             this.Controls.Add(this.nonFoodDataGridView);
@@ -158,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.medicalDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nonFoodDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +231,11 @@
         private System.Windows.Forms.DataGridView medicalDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodName;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodPrice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.TextBox finalPriceTextBox;
+        private System.Windows.Forms.Label finalPriceLabel;
+        private System.Windows.Forms.DataGridView productDataGridView;
     }
 }
 

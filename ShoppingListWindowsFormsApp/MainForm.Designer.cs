@@ -145,7 +145,8 @@
             this.foodDataGridView.Name = "foodDataGridView";
             this.foodDataGridView.Size = new System.Drawing.Size(240, 150);
             this.foodDataGridView.TabIndex = 0;
-            this.foodDataGridView.Text = "dataGridView1";
+            this.foodDataGridView.Text = "dataGridView1";           
+            this.foodDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodDataGridView_CellDoubleClick);
             // 
             // label2
             // 
@@ -180,12 +181,6 @@
             this.finalPriceLabel.TabIndex = 9;
             this.finalPriceLabel.Text = "Примерная цена всех товаров";
             // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 513);
-            // 
             // productDataGridView
             // 
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -196,6 +191,12 @@
             this.productDataGridView.Size = new System.Drawing.Size(143, 150);
             this.productDataGridView.TabIndex = 7;
             this.productDataGridView.Text = "dataGridView1";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(927, 513);
             this.Controls.Add(this.finalPriceLabel);
             this.Controls.Add(this.finalPriceTextBox);
             this.Controls.Add(this.productDataGridView);
@@ -206,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.foodLabel);
             this.Controls.Add(this.foodDataGridView);
-            this.Name = "MainForm";
+            //this.Name = "";
             this.Text = "Список покупок";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.medicalDataGridView)).EndInit();

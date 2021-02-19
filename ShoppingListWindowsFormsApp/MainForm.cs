@@ -12,6 +12,8 @@ namespace ShoppingListWindowsFormsApp
 {
     public partial class MainForm : Form
     {
+        public User user = new User();
+        public decimal priceOfSelectedProducts = 0;
         public MainForm()
         {
             InitializeComponent();
@@ -36,5 +38,18 @@ namespace ShoppingListWindowsFormsApp
                 }
             }
         }
+
+        private void foodDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value != null)
+            {
+                productDataGridView.Rows.Add(foodDataGridView[0, e.RowIndex].Value);
+                user.ListProducts.Add(foodDataGridView[0, e.RowIndex].Value.ToString());
+                priceOfSelectedProducts += (decimal)foodDataGridView[1, e.RowIndex].Value;
+                finalPriceTextBox.Text = priceOfSelectedProducts.ToString();
+            }            
+        }
+
+        
     }
 }

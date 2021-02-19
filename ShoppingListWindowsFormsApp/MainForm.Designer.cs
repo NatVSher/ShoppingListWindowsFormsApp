@@ -41,7 +41,7 @@
             this.nonFoodDataGridView = new System.Windows.Forms.DataGridView();
             this.foodDataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalPriceTextBox = new System.Windows.Forms.TextBox();
             this.finalPriceLabel = new System.Windows.Forms.Label();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
@@ -145,7 +145,7 @@
             this.foodDataGridView.Name = "foodDataGridView";
             this.foodDataGridView.Size = new System.Drawing.Size(240, 150);
             this.foodDataGridView.TabIndex = 0;
-            this.foodDataGridView.Text = "dataGridView1";           
+            this.foodDataGridView.Text = "dataGridView1";
             this.foodDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodDataGridView_CellDoubleClick);
             // 
             // label2
@@ -158,15 +158,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Список покупок";
             // 
-            // Name
+            // NameProduct
             // 
-            this.Name.HeaderText = "Наименование";
-            this.Name.Name = "Name";
+            this.NameProduct.HeaderText = "Наименование";
+            this.NameProduct.Name = "NameProduct";
             // 
             // finalPriceTextBox
             // 
             this.finalPriceTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.finalPriceTextBox.Location = new System.Drawing.Point(691, 378);
+            this.finalPriceTextBox.Location = new System.Drawing.Point(669, 374);
             this.finalPriceTextBox.Name = "finalPriceTextBox";
             this.finalPriceTextBox.Size = new System.Drawing.Size(158, 33);
             this.finalPriceTextBox.TabIndex = 8;
@@ -177,15 +177,15 @@
             this.finalPriceLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.finalPriceLabel.Location = new System.Drawing.Point(643, 328);
             this.finalPriceLabel.Name = "finalPriceLabel";
-            this.finalPriceLabel.Size = new System.Drawing.Size(250, 21);
+            this.finalPriceLabel.Size = new System.Drawing.Size(214, 21);
             this.finalPriceLabel.TabIndex = 9;
-            this.finalPriceLabel.Text = "Примерная цена всех товаров";
+            this.finalPriceLabel.Text = "Примерная цена покупок";
             // 
             // productDataGridView
             // 
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name});
+            this.NameProduct});
             this.productDataGridView.Location = new System.Drawing.Point(384, 328);
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.Size = new System.Drawing.Size(143, 150);
@@ -207,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.foodLabel);
             this.Controls.Add(this.foodDataGridView);
-            //this.Name = "";
+            this.Name = "MainForm";
             this.Text = "Список покупок";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.medicalDataGridView)).EndInit();
@@ -233,7 +233,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn foodName;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameProduct;
         private System.Windows.Forms.TextBox finalPriceTextBox;
         private System.Windows.Forms.Label finalPriceLabel;
         private System.Windows.Forms.DataGridView productDataGridView;

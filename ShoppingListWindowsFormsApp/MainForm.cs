@@ -41,11 +41,12 @@ namespace ShoppingListWindowsFormsApp
 
         private void foodDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridView clickedDataGridView = (DataGridView)sender;
             if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value != null)
             {
-                productDataGridView.Rows.Add(foodDataGridView[0, e.RowIndex].Value);
-                user.ListProducts.Add(foodDataGridView[0, e.RowIndex].Value.ToString());
-                priceOfSelectedProducts += (decimal)foodDataGridView[1, e.RowIndex].Value;
+                productDataGridView.Rows.Add(clickedDataGridView[0, e.RowIndex].Value);
+                user.ListProducts.Add(clickedDataGridView[0, e.RowIndex].Value.ToString());
+                priceOfSelectedProducts += (decimal)clickedDataGridView[1, e.RowIndex].Value;
                 finalPriceTextBox.Text = priceOfSelectedProducts.ToString();
             }            
         }

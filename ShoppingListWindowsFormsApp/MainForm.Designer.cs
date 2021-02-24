@@ -122,6 +122,7 @@
             this.medicalDataGridView.Size = new System.Drawing.Size(240, 150);
             this.medicalDataGridView.TabIndex = 5;
             this.medicalDataGridView.Text = "dataGridView1";
+            this.medicalDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodDataGridView_CellDoubleClick);
             // 
             // nonFoodDataGridView
             // 
@@ -134,6 +135,7 @@
             this.nonFoodDataGridView.Size = new System.Drawing.Size(240, 150);
             this.nonFoodDataGridView.TabIndex = 3;
             this.nonFoodDataGridView.Text = "dataGridView1";
+            this.nonFoodDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.foodDataGridView_CellDoubleClick);
             // 
             // foodDataGridView
             // 

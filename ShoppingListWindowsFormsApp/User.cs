@@ -8,6 +8,7 @@ namespace ShoppingListWindowsFormsApp
     {
         public string Name;
         public List<string> ListProducts;
+        public decimal PriceSelectedProducts = 0;
         public User(string name)
         {
             Name = name;

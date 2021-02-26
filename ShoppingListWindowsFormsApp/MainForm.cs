@@ -57,6 +57,8 @@ namespace ShoppingListWindowsFormsApp
                 user.ListProducts.Add(clickedDataGridView[0, e.RowIndex].Value.ToString());
                 priceOfSelectedProducts += (decimal)clickedDataGridView[1, e.RowIndex].Value;
                 finalPriceTextBox.Text = priceOfSelectedProducts.ToString();
+                user.PriceSelectedProducts = priceOfSelectedProducts;
+                UserListStorage.Save(user);
             }
         }
 

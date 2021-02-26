@@ -41,9 +41,9 @@
             this.nonFoodDataGridView = new System.Windows.Forms.DataGridView();
             this.foodDataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.NameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalPriceTextBox = new System.Windows.Forms.TextBox();
             this.finalPriceLabel = new System.Windows.Forms.Label();
+            this.NameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.medicalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nonFoodDataGridView)).BeginInit();
@@ -160,11 +160,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Список покупок";
             // 
-            // NameProduct
-            // 
-            this.NameProduct.HeaderText = "Наименование";
-            this.NameProduct.Name = "NameProduct";
-            // 
             // finalPriceTextBox
             // 
             this.finalPriceTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -183,22 +178,29 @@
             this.finalPriceLabel.TabIndex = 9;
             this.finalPriceLabel.Text = "Примерная цена покупок";
             // 
-            // productDataGridView
+            // NameProduct
             // 
-            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameProduct});
-            this.productDataGridView.Location = new System.Drawing.Point(384, 328);
-            this.productDataGridView.Name = "productDataGridView";
-            this.productDataGridView.Size = new System.Drawing.Size(143, 150);
-            this.productDataGridView.TabIndex = 7;
-            this.productDataGridView.Text = "dataGridView1";
+            this.NameProduct.HeaderText = "Наименование";
+            this.NameProduct.Name = "NameProduct";
+            this.NameProduct.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.NameProduct.Width = 200;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 513);
+            // 
+            // productDataGridView
+            // 
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameProduct});
+            this.productDataGridView.Location = new System.Drawing.Point(340, 328);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.productDataGridView.TabIndex = 7;
+            this.productDataGridView.Text = "dataGridView1";
             this.Controls.Add(this.finalPriceLabel);
             this.Controls.Add(this.finalPriceTextBox);
             this.Controls.Add(this.productDataGridView);
@@ -235,10 +237,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn foodName;
         private System.Windows.Forms.DataGridViewTextBoxColumn foodPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameProduct;
         private System.Windows.Forms.TextBox finalPriceTextBox;
         private System.Windows.Forms.Label finalPriceLabel;
         private System.Windows.Forms.DataGridView productDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameProduct;
     }
 }
 

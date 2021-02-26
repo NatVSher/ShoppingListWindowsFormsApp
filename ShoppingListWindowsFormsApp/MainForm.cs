@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ShoppingListWindowsFormsApp
 {
     public partial class MainForm : Form
     {
-        public User user = new User();
+        public User user;
         public decimal priceOfSelectedProducts = 0;
         public MainForm()
         {
@@ -20,6 +13,22 @@ namespace ShoppingListWindowsFormsApp
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+            user = new User("Инкогнито");
+            var enterNameForm = new EnterNameForm(user);
+            var result = enterNameForm.ShowDialog(this);
+            if (result == DialogResult.None)
+                return;
+            if (result != DialogResult.OK)
+            {
+                Close();
+            }
+
+            FillingTables();
+
+        }
+
+        private void FillingTables()
         {
             var foodProducts = ProductStorage.GetAll();
             foreach (var foodProduct in foodProducts)
@@ -48,9 +57,9 @@ namespace ShoppingListWindowsFormsApp
                 user.ListProducts.Add(clickedDataGridView[0, e.RowIndex].Value.ToString());
                 priceOfSelectedProducts += (decimal)clickedDataGridView[1, e.RowIndex].Value;
                 finalPriceTextBox.Text = priceOfSelectedProducts.ToString();
-            }            
+            }
         }
 
-        
+
     }
 }

@@ -52,5 +52,10 @@ namespace ShoppingListWindowsFormsApp
             }
             return true;
         }
+
+        private void EnterNameForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

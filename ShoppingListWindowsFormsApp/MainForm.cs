@@ -53,15 +53,22 @@ namespace ShoppingListWindowsFormsApp
             DataGridView clickedDataGridView = (DataGridView)sender;
             if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value != null)
             {
-                productDataGridView.Rows.Add(clickedDataGridView[0, e.RowIndex].Value);
-                user.ListProducts.Add(clickedDataGridView[0, e.RowIndex].Value.ToString());
+                productDataGridView.Rows.Add(clickedDataGridView[0, e.RowIndex].Value);                
                 priceOfSelectedProducts += (decimal)clickedDataGridView[1, e.RowIndex].Value;
                 finalPriceTextBox.Text = priceOfSelectedProducts.ToString();
+                user.ListProducts.Add(clickedDataGridView[0, e.RowIndex].Value.ToString());
                 user.PriceSelectedProducts = priceOfSelectedProducts;
                 UserListStorage.Save(user);
             }
-        }
-
-
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value == null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Хотите добавить продукт?", "Добавление продуктов", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    var addProduct = new AddProduct();
+                    addProduct.ShowDialog();
+                }                
+            }
+        }       
     }
 }

@@ -73,6 +73,7 @@
             this.Controls.Add(this.label1);
             this.Name = "EnterNameForm";
             this.Text = "Ввод имени пользователя";
+            this.Load += new System.EventHandler(this.EnterNameForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

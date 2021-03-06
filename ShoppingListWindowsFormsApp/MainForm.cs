@@ -7,6 +7,7 @@ namespace ShoppingListWindowsFormsApp
     {
         public User user;
         public decimal priceOfSelectedProducts = 0;
+        public Product userProduct;
         public MainForm()
         {
             InitializeComponent();
@@ -30,28 +31,33 @@ namespace ShoppingListWindowsFormsApp
 
         private void FillingTables()
         {
-            var foodProducts = ProductStorage.GetAll();
-            foreach (var foodProduct in foodProducts)
+            var products = ProductStorage.GetAll();
+            foreach (var item in products)
             {
-                if (foodProduct.Type == TypeProduct.FoodProduct)
-                {
-                    foodDataGridView.Rows.Add(foodProduct.Name, foodProduct.Price);
-                }
-                if (foodProduct.Type == TypeProduct.NonFoodProduct)
-                {
-                    nonFoodDataGridView.Rows.Add(foodProduct.Name, foodProduct.Price);
-                }
-                if (foodProduct.Type == TypeProduct.MedicalProduct)
-                {
-                    medicalDataGridView.Rows.Add(foodProduct.Name, foodProduct.Price);
-                }
+                FillingDataGridView(item);
+            }
+        }
+
+        private void FillingDataGridView(Product product)
+        {
+            if (product.Type == TypeProduct.FoodProduct)
+            {
+                foodDataGridView.Rows.Add(product.Name, product.Price);
+            }
+            if (product.Type == TypeProduct.NonFoodProduct)
+            {
+                nonFoodDataGridView.Rows.Add(product.Name, product.Price);
+            }
+            if (product.Type == TypeProduct.MedicalProduct)
+            {
+                medicalDataGridView.Rows.Add(product.Name, product.Price);
             }
         }
 
         private void foodDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView clickedDataGridView = (DataGridView)sender;
-            if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value != null)
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && clickedDataGridView[e.ColumnIndex, e.RowIndex].Value != null)
             {
                 productDataGridView.Rows.Add(clickedDataGridView[0, e.RowIndex].Value);                
                 priceOfSelectedProducts += (decimal)clickedDataGridView[1, e.RowIndex].Value;
@@ -60,15 +66,18 @@ namespace ShoppingListWindowsFormsApp
                 user.PriceSelectedProducts = priceOfSelectedProducts;
                 UserListStorage.Save(user);
             }
-            if (e.ColumnIndex != -1 && e.RowIndex != -1 && foodDataGridView[e.ColumnIndex, e.RowIndex].Value == null)
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && clickedDataGridView[e.ColumnIndex, e.RowIndex].Value == null)
             {
                 DialogResult dialogResult = MessageBox.Show("Хотите добавить продукт?", "Добавление продуктов", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    var addProduct = new AddProduct();
+                    userProduct = new Product("", 0, 0);
+                    var addProduct = new AddProduct(userProduct);
                     addProduct.ShowDialog();
-                }                
+                }
+                FillingDataGridView(userProduct);
             }
-        }       
+        }  
+        
     }
 }

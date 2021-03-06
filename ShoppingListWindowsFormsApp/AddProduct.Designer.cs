@@ -31,9 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.foodCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.nonFoodCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.medicalCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.typeProductCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -47,6 +45,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -66,35 +65,19 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Цена";
             // 
-            // foodCheckedListBox
+            // typeProductCheckedListBox
             // 
-            this.foodCheckedListBox.FormattingEnabled = true;
-            this.foodCheckedListBox.Items.AddRange(new object[] {
-            "Продовольственный товар"});
-            this.foodCheckedListBox.Location = new System.Drawing.Point(345, 46);
-            this.foodCheckedListBox.Name = "foodCheckedListBox";
-            this.foodCheckedListBox.Size = new System.Drawing.Size(195, 22);
-            this.foodCheckedListBox.TabIndex = 3;
-            // 
-            // nonFoodCheckedListBox
-            // 
-            this.nonFoodCheckedListBox.FormattingEnabled = true;
-            this.nonFoodCheckedListBox.Items.AddRange(new object[] {
-            "Непродовольственный товар"});
-            this.nonFoodCheckedListBox.Location = new System.Drawing.Point(345, 87);
-            this.nonFoodCheckedListBox.Name = "nonFoodCheckedListBox";
-            this.nonFoodCheckedListBox.Size = new System.Drawing.Size(195, 22);
-            this.nonFoodCheckedListBox.TabIndex = 4;
-            // 
-            // medicalCheckedListBox
-            // 
-            this.medicalCheckedListBox.FormattingEnabled = true;
-            this.medicalCheckedListBox.Items.AddRange(new object[] {
+            this.typeProductCheckedListBox.CheckOnClick = true;
+            this.typeProductCheckedListBox.FormattingEnabled = true;
+            this.typeProductCheckedListBox.Items.AddRange(new object[] {
+            "Продовольственный товар",
+            "Непродовольственный товар",
             "Медицинский товар"});
-            this.medicalCheckedListBox.Location = new System.Drawing.Point(345, 128);
-            this.medicalCheckedListBox.Name = "medicalCheckedListBox";
-            this.medicalCheckedListBox.Size = new System.Drawing.Size(195, 22);
-            this.medicalCheckedListBox.TabIndex = 5;
+            this.typeProductCheckedListBox.Location = new System.Drawing.Point(345, 87);
+            this.typeProductCheckedListBox.Name = "typeProductCheckedListBox";
+            this.typeProductCheckedListBox.Size = new System.Drawing.Size(195, 58);
+            this.typeProductCheckedListBox.TabIndex = 3;
+            this.typeProductCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.typeProductCheckedListBox_SelectedIndexChanged);
             // 
             // nameTextBox
             // 
@@ -117,9 +100,7 @@
             this.ClientSize = new System.Drawing.Size(575, 314);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.nameTextBox);
-            this.Controls.Add(this.medicalCheckedListBox);
-            this.Controls.Add(this.nonFoodCheckedListBox);
-            this.Controls.Add(this.foodCheckedListBox);
+            this.Controls.Add(this.typeProductCheckedListBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -135,9 +116,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox foodCheckedListBox;
-        private System.Windows.Forms.CheckedListBox nonFoodCheckedListBox;
-        private System.Windows.Forms.CheckedListBox medicalCheckedListBox;
+        private System.Windows.Forms.CheckedListBox typeProductCheckedListBox;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
     }

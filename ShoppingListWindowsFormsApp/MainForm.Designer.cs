@@ -234,11 +234,12 @@
             this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameProduct});
             this.productDataGridView.Location = new System.Drawing.Point(340, 328);
+            this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.ReadOnly = true;
             this.productDataGridView.Size = new System.Drawing.Size(240, 150);
             this.productDataGridView.TabIndex = 7;
-            this.productDataGridView.Text = "dataGridView1";
+            this.productDataGridView.Text = "dataGridView1";            
             // 
             // fileToolStripMenuItem
             // 

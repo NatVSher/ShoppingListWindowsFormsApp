@@ -106,6 +106,7 @@
             this.Controls.Add(this.button1);
             this.Name = "AddProduct";
             this.Text = "Добавление продуктов";
+            this.Load += new System.EventHandler(this.AddProduct_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

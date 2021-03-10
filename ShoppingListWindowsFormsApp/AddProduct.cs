@@ -8,13 +8,12 @@ using System.Windows.Forms;
 
 namespace ShoppingListWindowsFormsApp
 {
-    public partial class AddProduct: Form
+    public partial class AddProduct : Form
     {
         Product userProduct;
         public AddProduct(Product userProduct)
         {
             InitializeComponent();
-            nameTextBox.Focus();
             this.userProduct = userProduct;
         }
 
@@ -22,40 +21,34 @@ namespace ShoppingListWindowsFormsApp
         {
             userProduct.Name = nameTextBox.Text;
             var userPriceTxt = priceTextBox.Text;
-            if (!isValidUserAnswer(userPriceTxt))
+            if (!isValidUserAnswerPrise(userPriceTxt))
             {
                 return;
             }
             userProduct.Price = Convert.ToDecimal(userPriceTxt);
-            
-            bool flag = true;
-            while (flag)
+
+            switch (typeProductCheckedListBox.SelectedIndex)
             {
-                switch (typeProductCheckedListBox.SelectedIndex)
-                {
-                    case 0:
-                        userProduct.Type = TypeProduct.FoodProduct;
-                        flag = false;
-                        break;
-                    case 1:
-                        userProduct.Type = TypeProduct.NonFoodProduct;
-                        flag = false;
-                        break;
-                    case 2:
-                        userProduct.Type = TypeProduct.MedicalProduct;
-                        flag = false;
-                        break;
-                    default:
-                        MessageBox.Show("Пожалуйста, выберете тип продукта!");
-                        break;
-                }
+                case 0:
+                    userProduct.Type = TypeProduct.FoodProduct;
+                    break;
+                case 1:
+                    userProduct.Type = TypeProduct.NonFoodProduct;
+                    break;
+                case 2:
+                    userProduct.Type = TypeProduct.MedicalProduct;
+                    break;
+                default:
+                    MessageBox.Show("Пожалуйста, выберете тип продукта!");
+                    return;
             }
-                        
-            ProductStorage.Append(userProduct);
+            if (userProduct.Name != "")
+            {
+                ProductStorage.Append(userProduct);
+            }
             this.Close();
-            
         }
-        private bool isValidUserAnswer(string userAnswerTxt)
+        private bool isValidUserAnswerPrise(string userAnswerTxt)
         {
             decimal userAnswer;
             bool correctEntry;
@@ -76,6 +69,13 @@ namespace ShoppingListWindowsFormsApp
                     typeProductCheckedListBox.SetItemChecked(i, false);
                 typeProductCheckedListBox.SetItemChecked(typeProductCheckedListBox.SelectedIndex, true);
             }
+            if (typeProductCheckedListBox.CheckedItems.Count == 0) 
+                typeProductCheckedListBox.SelectedIndex = -1;
+        }
+
+        private void AddProduct_Load(object sender, EventArgs e)
+        {
+            nameTextBox.Focus();
         }
     }
 }

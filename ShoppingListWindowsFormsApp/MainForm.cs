@@ -74,10 +74,12 @@ namespace ShoppingListWindowsFormsApp
                     userProduct = new Product("", 0, 0);
                     var addProduct = new AddProduct(userProduct);
                     addProduct.ShowDialog();
-                }
-                FillingDataGridView(userProduct);
+                    if (userProduct.Name != "")
+                    {
+                        FillingDataGridView(userProduct);
+                    }
+                }                
             }
-        }  
-        
+        }
     }
 }
